@@ -1,0 +1,29 @@
+@import "mixins";
+
+* {
+  @include all;
+}
+
+body {
+  @include body-flex;
+}
+
+header {
+  @include header;
+}
+
+footer {
+  @include footer;
+}
+
+.iframe-container {
+  @include iframe-container-styles;
+
+  .content {
+    @include content-styles;
+  }
+
+  .sketchfab-embed-wrapper {
+    @include sketchfab-embed-wrapper-styles;
+  }
+}

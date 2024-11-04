@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #c9f0f8;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(9, 9, 121) 35%, rgb(0, 1, 106) 100%);
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+header .navbar {
+  filter: drop-shadow(1px 3px 5px rgba(0, 0, 0, 0.1568627451));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding-inline: 15px;
+}
+header .navbar .logo {
+  height: 65px;
+}
+header .navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 100px;
+}
+header .navbar .nav-links li a {
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+  transition: background 0.3s;
+  font-size: 16pt;
+}
+header .navbar .nav-links li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+@media (max-width: 768px) {
+  header .navbar .nav-links {
+    display: none;
+  }
+}
+header .navbar .btn-login {
+  background-color: #8fe1ef;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 10px;
+  color: black;
+  transition: background 0.3s;
+}
+header .navbar .btn-login:hover {
+  background-color: #0072ed;
+}
+header .navbar #dropdown {
+  display: none;
+}
+@media (max-width: 768px) {
+  header .navbar #dropdown {
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+footer {
+  background-color: #8fe1ef;
+  color: black;
+  text-align: center;
+  padding: 10px;
+  bottom: 0;
+  width: 100%;
+}
+
+.gallery .grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  padding: 50px;
+}
+@media (max-width: 768px) {
+  .gallery .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.gallery .grid-container img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+.gallery .grid-container img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .gallery .grid-container img {
+    aspect-ratio: auto;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+}/*# sourceMappingURL=portfolio.css.map */

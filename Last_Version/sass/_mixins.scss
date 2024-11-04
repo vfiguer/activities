@@ -1,0 +1,325 @@
+// Variables
+@import "variables";
+
+@mixin all {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-family;
+}
+
+@mixin body-flex {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $background;
+  
+}
+
+@mixin header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: $header-bg;
+  padding: $padding-sm $padding-md;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+
+  .navbar {
+    @include navbar;
+  }
+
+  @media (max-width: $screen-md) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@mixin navbar {
+  filter: $shadow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding-inline: $padding-md;
+
+  .logo {
+    height: $logo-h;
+  }
+
+  .nav-links {
+    @include navbarlist;
+  }
+
+  .btn-login {
+    @include btn;
+  }
+
+  #dropdown {
+    display: none;
+
+    @media (max-width: $screen-md) {
+      display: block;
+    }
+  }
+}
+
+@mixin navbarlist {
+  list-style: none;
+  display: flex;
+  gap: 100px;
+
+  li {
+    a {
+      @include links;
+    }
+  }
+  @media (max-width: $screen-md) {
+    display: none;
+  }
+}
+
+@mixin links {
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+  transition: background 0.3s;
+  font-size: 16pt;
+
+  &:hover {
+    background-color: $link-hover-bg;
+    border-radius: 5px;
+  }
+
+  
+}
+
+@mixin btn {
+  background-color: $secondary;
+  padding: $padding-btn;
+  text-decoration: none;
+  border-radius: 10px;
+  color: black;
+  transition: background 0.3s;
+
+  &:hover {
+    background-color: $primary-hover;
+  }
+
+}
+
+@mixin footer {
+  background-color: $secondary;
+  color: black;
+  text-align: center;
+  padding: $padding-sm;
+  bottom: 0;
+  width: 100%;
+}
+
+@mixin iframe-container-styles {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+@mixin content-styles {
+  z-index: 90;
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  color: rgb(0, 0, 0);
+  text-shadow: 0px 0px 4px #ffffff;
+  text-align: right;
+  user-select: none;
+
+  h1 {
+    font-size: 50pt;
+  }
+
+  p {
+    font-size: 20pt;
+    font-weight: bold;
+  }
+
+  @media (max-width: $screen-md) {
+    z-index: 90;
+    position: absolute;
+    top: 100px;
+    color: rgb(0, 0, 0);
+    text-shadow: 0px 0px 4px #ffffff;
+    text-align: center;
+    user-select: none;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    width: fit-content;
+    h1 {
+      font-size: 30pt;
+    }
+    p {
+      font-size: 13pt;
+      font-weight: bold;
+    }
+  }
+}
+
+@mixin sketchfab-embed-wrapper-styles {
+  width: 100%;
+  border: none;
+  height: 100%;
+
+  iframe {
+    width: 100%;
+    border: none;
+    height: 100%;
+    padding: 0 50px;
+  }
+
+  @media (max-width: $screen-md) {
+    iframe {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+}
+
+// FORMS
+@mixin form-container-styles {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin button-styles {
+  background-color: $primary;
+  padding: $padding-btn;
+  text-decoration: none;
+  border-radius: 10px;
+  color: white;
+  transition: background 0.3s;
+  filter: $shadow;
+  border: none;
+  width: fit-content;
+
+  &:hover {
+    background-color: $primary-hover;
+  }
+}
+
+@mixin form-inputs-styles {
+  flex-direction: column;
+  display: flex;
+  gap: 20px;
+  background-color: $secondary;
+  padding: $padding-lg;
+  border-radius: 10px;
+  filter: $shadow;
+
+  h1 {
+    font-size: 30pt;
+  }
+
+  input[type="password"],
+  input[type="email"] {
+    border: none;
+    padding: 15px;
+    font-size: 14pt;
+    border-radius: 10px;
+    filter: $shadow;
+  }
+}
+
+@mixin grid-container-styles($columns: 5, $columns-md: 3) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: 10px;
+  padding: 50px;
+
+  @media (max-width: $screen-md) {
+    grid-template-columns: repeat($columns-md, 1fr);
+  }
+}
+
+
+@mixin image-styles {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+    cursor: pointer;
+  }
+
+  @media (max-width: $screen-md){
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+
+}
+
+@mixin image-styles-fluid {
+  width: 100%;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: 5px;
+  transition: 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+    cursor: pointer;
+  }
+
+
+}
+
+@mixin img-sm-styles {
+  @include image-styles-fluid;
+
+  + div {
+    display: none; 
+  }
+
+  &:hover + div {
+   @include fullscreen-overlay;
+  }
+}
+
+
+@mixin img-md-styles {
+  height: 100%;
+  padding: 50px;
+  box-sizing: border-box;
+  filter: $shadow; // Asegúrate de que $shadow esté definido en tu Sass
+}
+
+
+@mixin fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 9999;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  backdrop-filter: blur(10px);
+  pointer-events: none; 
+}
+
