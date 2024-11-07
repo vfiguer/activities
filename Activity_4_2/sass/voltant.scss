@@ -1,0 +1,35 @@
+@import "mixins";
+
+* {
+  @include all;
+}
+
+body {
+  @include body-flex;
+}
+
+header {
+  @include header;
+}
+
+footer {
+  @include footer;
+}
+
+.gallery {
+  .grid-container {
+    @include grid-container-styles(3, 3);
+    margin: {
+      left: 200px;
+      right: 200px;
+    }
+
+    .img-sm {
+      @include img-sm-styles;
+    
+    }
+    .img-md {
+      @include img-md-styles;
+    }
+  }
+}

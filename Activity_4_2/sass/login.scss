@@ -1,0 +1,39 @@
+@import "mixins";
+
+* {
+  @include all;
+}
+
+body {
+  @include body-flex;
+}
+
+header {
+  @include header;
+}
+
+footer {
+  @include footer;
+}
+
+.form {
+  @include form-container-styles;
+
+  .form-inputs {
+    @include form-inputs-styles;
+  }
+
+  .btn {
+    @include button-styles;
+  }
+}
+
+.gallery {
+  .grid-container {
+    @include grid-container-styles;
+
+    img {
+      @include image-styles;
+    }
+  }
+}
