@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>DEEP SEA - Log In</title>
     <link rel="stylesheet" href="../sass/login.css" />
+    <script src="../script/script.js"></script>
+
   </head>
   <body>
     <header>
@@ -68,7 +70,16 @@
       </section>
     </main>
 
-    <footer>
+    
+      <div style="width: 30%;">
+        <label for="font-size">Font size</label>
+        <input oninput="changeTextSize()" id="font-size" type="range" min="0.5" max="4.5" value="1.5">
+        <label for="separation">Letter separation</label>
+
+        <input oninput="changeSeparation()" id="separation" type="range" max="1.5" min="0.5">
+        <input onclick="bold()" id="bold" type="button" value="Bold">
+  </div>
+      
       <p>&copy; 2024 Deep Sea.</p>
     </footer>
   </body>
