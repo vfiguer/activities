@@ -4,24 +4,99 @@
   @include all;
 }
 
-body {
-  @include body-flex;
-}
+@mixin main($background, $header-bg, $secondary, $primary-hover, $primary) {
+  #accesibilityBtn {
+    pointer-events: all;
+    @include floatingBtn($primary, $primary-hover);
+  }
 
-header {
-  @include header;
-}
+  .accesibilityPopup {
+    @include fullscreen-overlay;
+  }
 
-footer {
-  @include footer;
-}
+  .form-inputs {
+    @include form-inputs-styles($secondary);
+  }
 
-.gallery {
-  .grid-container {
-    @include grid-container-styles;
+  .btn {
+    @include button-styles($primary, $primary-hover);
+  }
 
-    img {
-      @include image-styles;
+  .gallery {
+    .grid-container {
+      @include grid-container-styles;
+
+      img {
+        @include image-styles;
+      }
     }
   }
+
+  @include body-flex($background);
+
+  header {
+    @include header($header-bg);
+  }
+
+  footer {
+    @include footer($secondary);
+  }
+  .login-btn {
+    @include button-styles($secondary, $primary-hover);
+    color: black;
+  }
+}
+
+.normal {
+  @include main($background, $header-bg, $secondary, $primary-hover, $primary);
+}
+
+.grayscale {
+  @include main(
+    $background-gray,
+    $header-bg-gray,
+    $secondary-gray,
+    $primary-hover-gray,
+    $primary-gray
+  );
+}
+
+.highcontrast {
+  @include main(
+    $background-contrast-high,
+    $header-bg-contrast-high,
+    $secondary-contrast-high,
+    $primary-hover-contrast-high,
+    $primary-contrast-high
+  );
+}
+
+.lowcontrast {
+  @include main(
+    $background-contrast-low,
+    $header-bg-contrast-low,
+    $secondary-contrast-low,
+    $primary-hover-contrast-low,
+    $primary-contrast-low
+  );
+}
+
+.highsaturation {
+  @include main(
+    $background-saturation-high,
+    $header-bg-saturation-high,
+    $secondary-saturation-high,
+    $primary-hover-saturation-high,
+    $primary-saturation-high
+  );
+}
+
+.lowsaturation {
+  @include main(
+    $background-saturation-low,
+    $header-bg-saturation-low,
+    $secondary-saturation-low,
+    $primary-hover-saturation-low,
+    $primary-saturation-low
+  );
 }

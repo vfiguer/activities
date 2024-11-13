@@ -17,3 +17,57 @@ $padding-sm: 10px;
 $padding-btn: 10px 20px;
 $screen-md: 768px;
 $logo-h: 65px;
+
+$background-gray: #e0e0e0;
+$secondary-gray: #bfbfbf;
+$primary-gray: #303030;
+$primary-hover-gray: #adadad;
+$header-bg-gray: linear-gradient(
+  90deg,
+  rgba(36, 36, 36, 1) 0%,
+  rgba(120, 120, 120, 1) 35%,
+  rgba(106, 106, 106, 1) 100%
+);
+
+
+$background-contrast-high: #f6fdfe;
+$secondary-contrast-high: #a9fbfd;
+$primary-contrast-high: #00002a;
+$primary-hover-contrast-high: #0072ed;
+$header-bg-contrast-high: linear-gradient(
+  90deg,
+  rgba(0, 0, 0, 1) 0%,
+  rgba(0, 0, 67, 1) 100%
+);
+
+
+$background-contrast-low: #91d3ea;
+$secondary-contrast-low: #81b0d0;
+$primary-contrast-low: #080a7b;
+$primary-hover-contrast-low: #0072ed;
+$header-bg-contrast-low: linear-gradient(
+  90deg,
+  rgba(5, 0, 90, 1) 0%,
+  rgba(0, 1, 125, 1) 100%
+);
+
+
+$background-saturation-high: #c2f4ff;
+$secondary-saturation-high: #7febff;
+$primary-saturation-high: #000061;
+$primary-hover-saturation-high: #0072ed;
+$header-bg-saturation-high: linear-gradient(
+  90deg,
+  rgba(5, 0, 90, 1) 0%,
+  rgba(0, 1, 106, 1) 100%
+);
+
+$background-saturation-low: #d5e8ec;
+$secondary-saturation-low: #a8cfd6;
+$primary-saturation-low: #1b1b46;
+$primary-hover-saturation-low: #0072ed;
+$header-bg-saturation-low: linear-gradient(
+  90deg,
+  rgba(11, 10, 28, 1) 0%,
+  rgba(28, 28, 78, 1) 100%
+);

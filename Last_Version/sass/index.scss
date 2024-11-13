@@ -4,26 +4,109 @@
   @include all;
 }
 
-body {
-  @include body-flex;
+html {
+  @include html;
 }
 
-header {
-  @include header;
-}
+@mixin main($background, $header-bg, $secondary, $primary-hover, $primary) {
+  .iframe-container {
+    @include iframe-container-styles;
 
-footer {
-  @include footer;
-}
+    .content {
+      @include content-styles;
+    }
 
-.iframe-container {
-  @include iframe-container-styles;
-
-  .content {
-    @include content-styles;
+    .sketchfab-embed-wrapper {
+      @include sketchfab-embed-wrapper-styles;
+    }
   }
 
-  .sketchfab-embed-wrapper {
-    @include sketchfab-embed-wrapper-styles;
+  #accesibilityBtn {
+    pointer-events: all;
   }
+
+  .accesibilityPopup {
+    @include fullscreen-overlay;
+  }
+
+  @include body-flex($background);
+
+  header {
+    @include header($header-bg);
+  }
+
+  footer {
+    @include footer($secondary);
+  }
+
+  #accesibilityBtn {
+    @include floatingBtn($primary, $primary-hover);
+  }
+
+  .form-inputs {
+    @include form-inputs-styles($secondary);
+  }
+
+  .btn {
+    @include button-styles($primary, $primary-hover);
+  }
+
+  .login-btn {
+    @include button-styles($secondary, $primary-hover);
+    color: black;
+  }
+}
+
+.normal {
+  @include main($background, $header-bg, $secondary, $primary-hover, $primary);
+}
+
+.grayscale {
+  @include main(
+    $background-gray,
+    $header-bg-gray,
+    $secondary-gray,
+    $primary-hover-gray,
+    $primary-gray
+  );
+}
+
+.highcontrast {
+  @include main(
+    $background-contrast-high,
+    $header-bg-contrast-high,
+    $secondary-contrast-high,
+    $primary-hover-contrast-high,
+    $primary-contrast-high
+  );
+}
+
+.lowcontrast {
+  @include main(
+    $background-contrast-low,
+    $header-bg-contrast-low,
+    $secondary-contrast-low,
+    $primary-hover-contrast-low,
+    $primary-contrast-low
+  );
+}
+
+.highsaturation {
+  @include main(
+    $background-saturation-high,
+    $header-bg-saturation-high,
+    $secondary-saturation-high,
+    $primary-hover-saturation-high,
+    $primary-saturation-high
+  );
+}
+
+.lowsaturation {
+  @include main(
+    $background-saturation-low,
+    $header-bg-saturation-low,
+    $secondary-saturation-low,
+    $primary-hover-saturation-low,
+    $primary-saturation-low
+  );
 }
