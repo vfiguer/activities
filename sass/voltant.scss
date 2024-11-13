@@ -1,0 +1,144 @@
+@import "mixins";
+
+* {
+  @include all;
+}
+
+body {
+  @include body-flex;
+}
+
+header {
+  @include header;
+}
+
+footer {
+  @include footer;
+}
+
+.gallery {
+  .grid-container {
+    @include grid-container-styles(3, 3);
+    margin: {
+      left: 200px;
+      right: 200px;
+    }
+
+    .img-sm {
+      @include img-sm-styles;
+    }
+    .img-md {
+      @include img-md-styles;
+    }
+  }
+}
+
+@import "mixins";
+
+* {
+  @include all;
+}
+
+@mixin main($background, $header-bg, $secondary, $primary-hover, $primary) {
+  #accesibilityBtn {
+    pointer-events: all;
+    @include floatingBtn($primary, $primary-hover);
+  }
+
+  .accesibilityPopup {
+    @include fullscreen-overlay;
+  }
+
+  .form-inputs {
+    @include form-inputs-styles($secondary);
+  }
+
+  .btn {
+    @include button-styles($primary, $primary-hover);
+  }
+
+  .gallery {
+    .grid-container {
+      @include grid-container-styles(3, 3);
+      margin: {
+        left: 200px;
+        right: 200px;
+      }
+
+      .img-sm {
+        @include img-sm-styles;
+      }
+      .img-md {
+        @include img-md-styles;
+      }
+    }
+  }
+
+  @include body-flex($background);
+
+  header {
+    @include header($header-bg);
+  }
+
+  footer {
+    @include footer($secondary);
+  }
+  .login-btn {
+    @include button-styles($secondary, $primary-hover);
+    color: black;
+  }
+}
+
+.normal {
+  @include main($background, $header-bg, $secondary, $primary-hover, $primary);
+}
+
+.grayscale {
+  @include main(
+    $background-gray,
+    $header-bg-gray,
+    $secondary-gray,
+    $primary-hover-gray,
+    $primary-gray
+  );
+}
+
+.highcontrast {
+  @include main(
+    $background-contrast-high,
+    $header-bg-contrast-high,
+    $secondary-contrast-high,
+    $primary-hover-contrast-high,
+    $primary-contrast-high
+  );
+}
+
+.lowcontrast {
+  @include main(
+    $background-contrast-low,
+    $header-bg-contrast-low,
+    $secondary-contrast-low,
+    $primary-hover-contrast-low,
+    $primary-contrast-low
+  );
+}
+
+.highsaturation {
+  @include main(
+    $background-saturation-high,
+    $header-bg-saturation-high,
+    $secondary-saturation-high,
+    $primary-hover-saturation-high,
+    $primary-saturation-high
+  );
+}
+
+.lowsaturation {
+  @include main(
+    $background-saturation-low,
+    $header-bg-saturation-low,
+    $secondary-saturation-low,
+    $primary-hover-saturation-low,
+    $primary-saturation-low
+  );
+}
