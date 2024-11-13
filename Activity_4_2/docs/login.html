@@ -6,15 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>DEEP SEA - Log In</title>
     <link rel="stylesheet" href="../sass/login.css" />
-    <script src="../script/script.js"></script>
-
   </head>
-  <body>
+  <body class="normal">
     <header>
       <nav class="navbar">
-        <a href="#" class="btn-login" id="dropdown"
+        <a href="#" class="login-btn" id="dropdown"
           ><img
-            src="./res/menu_24dp_UNDEFINED_FILL0_wght400_GRAD0_opsz24.svg"
+            src="../res/menu_24dp_UNDEFINED_FILL0_wght400_GRAD0_opsz24.svg"
             alt="Hamburger"
         /></a>
         <div class="logo">
@@ -29,8 +27,7 @@
           <li><a href="#">Al voltant de la ballena</a></li>
           <li><a href="#">Historia</a></li>
         </ul>
-        <a href="./docs/login.html" class="btn-login">Log In</a>
-
+        <a href="./docs/login.html" class="login-btn">Log In</a>
       </nav>
     </header>
 
@@ -70,17 +67,68 @@
       </section>
     </main>
 
-    
-      <div style="width: 30%;">
-        <label for="font-size">Font size</label>
-        <input oninput="changeTextSize()" id="font-size" type="range" min="0.5" max="4.5" value="1.5">
-        <label for="separation">Letter separation</label>
-
-        <input oninput="changeSeparation()" id="separation" type="range" max="1.5" min="0.5">
-        <input onclick="bold()" id="bold" type="button" value="Bold">
-  </div>
-      
+    <footer>
       <p>&copy; 2024 Deep Sea.</p>
     </footer>
+
+    <button id="accesibilityBtn">
+      <img
+        src="../res/accessibility_new_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
+        alt="accesibility Button"
+      />
+    </button>
+
+    <div class="accesibilityPopup">
+      <div class="form">
+        <div class="form-inputs">
+          <h2>Accesibilitat</h2>
+          <label for="colorMode">Modo de color</label>
+          <select name="colorMode" id="colorMode">
+            <option value="normal" selected="selected">Normal</option>
+            <option value="grayscale">Escala de grisos</option>
+            <option value="highcontrast">Alt contrast</option>
+            <option value="lowcontrast">Baix contrast</option>
+            <option value="highsaturation">Alta saturacio</option>
+            <option value="lowsaturation">Baixa saturacio</option>
+          </select>
+          <label for="size">Tamaño</label>
+          <input
+            type="range"
+            name="size"
+            id="size"
+            min="70"
+            max="130"
+            step="5"
+          />
+          <label for="letterSpacing">Espaciado letra</label>
+          <input
+            type="range"
+            name="letterSpacing"
+            id="letterSpacing"
+            min="0"
+            max="6"
+          />
+          <label for="wordSpacing">Espaciado palabras</label>
+          <input
+            type="range"
+            name="wordSpacing"
+            id="wordSpacing"
+            min="0"
+            max="15"
+          />
+          <label for="lineSpacing">Espaciado linea</label>
+          <input
+            type="range"
+            name="lineSpacing"
+            id="lineSpacing"
+            min="0"
+            max="25"
+          />
+          <button id="saveAccesibility" class="btn">Guardar</button>
+        </div>
+      </div>
+    </div>
   </body>
+  <script src="../script/script.js"></script>
+
 </html>

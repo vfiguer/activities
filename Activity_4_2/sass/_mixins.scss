@@ -8,7 +8,11 @@
   font-family: $font-family;
 }
 
-@mixin body-flex {
+@mixin html {
+  font-size: 100%
+}
+
+@mixin body-flex ($background: $background) {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -16,7 +20,7 @@
   
 }
 
-@mixin header {
+@mixin header ($header-bg:$header-bg){
   position: sticky;
   top: 0;
   width: 100%;
@@ -54,10 +58,6 @@
     @include navbarlist;
   }
 
-  .btn-login {
-    @include btn;
-  }
-
   #dropdown {
     display: none;
 
@@ -87,7 +87,7 @@
   color: white;
   padding: 5px 10px;
   transition: background 0.3s;
-  font-size: 16pt;
+  font-size: 1.3rem;
 
   &:hover {
     background-color: $link-hover-bg;
@@ -97,7 +97,7 @@
   
 }
 
-@mixin btn {
+@mixin btn ($secondary:$secondary, $primary-hover : $primary-hover){
   background-color: $secondary;
   padding: $padding-btn;
   text-decoration: none;
@@ -111,7 +111,7 @@
 
 }
 
-@mixin footer {
+@mixin footer ($secondary: $secondary) {
   background-color: $secondary;
   color: black;
   text-align: center;
@@ -140,11 +140,11 @@
   user-select: none;
 
   h1 {
-    font-size: 50pt;
+    font-size: 4rem;
   }
 
   p {
-    font-size: 20pt;
+    font-size: 1.7rem;
     font-weight: bold;
   }
 
@@ -161,10 +161,10 @@
     margin-inline: auto;
     width: fit-content;
     h1 {
-      font-size: 30pt;
+      font-size: 2.2rem;
     }
     p {
-      font-size: 13pt;
+      font-size: 1.3rem;
       font-weight: bold;
     }
   }
@@ -200,7 +200,7 @@
   justify-content: center;
 }
 
-@mixin button-styles {
+@mixin button-styles ($primary:$primary, $primary-hover: $primary-hover){
   background-color: $primary;
   padding: $padding-btn;
   text-decoration: none;
@@ -216,7 +216,7 @@
   }
 }
 
-@mixin form-inputs-styles {
+@mixin form-inputs-styles ($secondary:$secondary) {
   flex-direction: column;
   display: flex;
   gap: 20px;
@@ -226,16 +226,24 @@
   filter: $shadow;
 
   h1 {
-    font-size: 30pt;
+    font-size: 3rem;
   }
 
   input[type="password"],
   input[type="email"] {
     border: none;
     padding: 15px;
-    font-size: 14pt;
+    font-size: 1.4rem;
     border-radius: 10px;
     filter: $shadow;
+  }
+  select{
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    filter: $shadow;
+    font-size: 1.4rem;
+
   }
 }
 
@@ -296,6 +304,7 @@
 
   &:hover + div {
    @include fullscreen-overlay;
+   pointer-events: none; 
   }
 }
 
@@ -320,7 +329,7 @@
   justify-content: center; 
   align-items: center; 
   backdrop-filter: blur(10px);
-  pointer-events: none; 
+  
 }
 
 //adaptability
@@ -335,6 +344,24 @@
 @mixin contrast-dark{
   *{
     filter: contrast(0.75);
+  }
+}
+
+@mixin floatingBtn ($primary : $primary, $primary-hover: $primary-hover){
+  width: 80px;
+  height: 80px;
+  filter: $shadow;
+  background-color: $primary;
+  color: white;
+  border: none;
+  border-radius: 60px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  transition: 0.3s;
+  &:hover{
+    background-color:  $primary-hover;
   }
 }
 
