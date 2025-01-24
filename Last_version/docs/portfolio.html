@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Porfolio - DEEP SEA</title>
+    <link rel="stylesheet" href="../sass/portfolio.css" />
+    <link rel="stylesheet" href="../sass/navbar.css" />
+    <link rel="stylesheet" href="../output.css" />
+    <script src="../script/jquery-3.7.1.min.js"></script>
+
+  </head>
+  <body class="normal">
+    <header>
+      <nav class="navbar">
+        <a href="#" class="login-btn" id="dropdown"
+          ><img
+          src="../res/icons/menu.svg"
+            alt="dropdown menu"
+        /></a>
+        <div class="logo">
+          <a href="../index.html"
+            ><img src="../res/logo.png" alt="LOGO DEEPSEA"
+          /></a>
+        </div>
+        <ul class="nav-links">
+          <li><a class="txt" href="./news.html">News</a></li>
+          <li>
+            <a class="txt" href="./portfolio.html">Muntatge de balena</a>
+          </li>
+          <li>
+            <a class="txt" href="./voltant.html"
+              >Al voltant de la ballena</a
+            >
+          </li>
+          <li><a class="txt" href="#">Historia</a></li>
+        </ul>
+        <a href="./login.html" class="login-btn" id="login">Log In</a>
+        <a class="login-btn hidden" id="logout">Log Out</a>      </nav>
+    </header>
+
+    
+    <div class="dropdown" id="dropdownMenu">
+      <ul class="dropdown-list">
+        <li><a class="txt" href="./news.html">News</a></li>
+        <li>
+          <a class="txt" href="./portfolio.html">Muntatge de balena</a>
+        </li>
+        <li>
+          <a class="txt" href="./voltant.html">Al voltant de la ballena</a>
+        </li>
+        <li><a class="txt" href="#">Historia</a></li>
+      </ul>
+    </div>
+    <main>
+      <section class="gallery">
+        <div class="grid-container">
+          <img src="../res/img/1.jpeg" alt="Imagen 1" />
+          <img src="../res/img/2.jpeg" alt="Imagen 2" />
+          <img src="../res/img/3.jpeg" alt="Imagen 3" />
+          <img src="../res/img/4.jpeg" alt="Imagen 4" />
+          <img src="../res/img/5.jpeg" alt="Imagen 5" />
+          <img src="../res/img/1.jpeg" alt="Imagen 1" />
+          <img src="../res/img/2.jpeg" alt="Imagen 2" />
+          <img src="../res/img/3.jpeg" alt="Imagen 3" />
+          <img src="../res/img/4.jpeg" alt="Imagen 4" />
+          <img src="../res/img/5.jpeg" alt="Imagen 5" />
+          <img src="../res/img/1.jpeg" alt="Imagen 1" />
+          <img src="../res/img/2.jpeg" alt="Imagen 2" />
+          <img src="../res/img/3.jpeg" alt="Imagen 3" />
+          <img src="../res/img/4.jpeg" alt="Imagen 4" />
+          <img src="../res/img/5.jpeg" alt="Imagen 5" />
+          <img src="../res/img/1.jpeg" alt="Imagen 1" />
+          <img src="../res/img/2.jpeg" alt="Imagen 2" />
+          <img src="../res/img/3.jpeg" alt="Imagen 3" />
+          <img src="../res/img/4.jpeg" alt="Imagen 4" />
+          <img src="../res/img/5.jpeg" alt="Imagen 5" />
+          <img src="../res/img/1.jpeg" alt="Imagen 1" />
+          <img src="../res/img/2.jpeg" alt="Imagen 2" />
+          <img src="../res/img/3.jpeg" alt="Imagen 3" />
+          <img src="../res/img/4.jpeg" alt="Imagen 4" />
+          <img src="../res/img/5.jpeg" alt="Imagen 5" />
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Deep Sea.</p>
+    </footer>
+    <button id="accesibilityBtn">
+      <img
+      src="../res/icons/accesibility.svg"
+      alt="accesibility Button"
+      />
+    </button>
+
+    <div class="accesibilityPopup">
+      <div class="form">
+        <div class="form-inputs">
+          <h2>Accesibilitat</h2>
+          <label for="colorMode">Modo de color</label>
+          <select name="colorMode" id="colorMode">
+            <option value="normal" selected="selected">Normal</option>
+            <option value="grayscale">Escala de grisos</option>
+            <option value="highcontrast">Alt contrast</option>
+            <option value="lowcontrast">Baix contrast</option>
+            <option value="highsaturation">Alta saturacio</option>
+            <option value="lowsaturation">Baixa saturacio</option>
+          </select>
+          <label for="size">Tamaño</label>
+          <input
+            type="range"
+            name="size"
+            id="size"
+            min="70"
+            max="130"
+            step="5"
+          />
+          <label for="letterSpacing">Espaciado letra</label>
+          <input
+            type="range"
+            name="letterSpacing"
+            id="letterSpacing"
+            min="0"
+            max="6"
+          />
+          <label for="wordSpacing">Espaciado palabras</label>
+          <input
+            type="range"
+            name="wordSpacing"
+            id="wordSpacing"
+            min="0"
+            max="15"
+          />
+          <label for="lineSpacing">Espaciado linea</label>
+          <input
+            type="range"
+            name="lineSpacing"
+            id="lineSpacing"
+            min="0"
+            max="25"
+          />
+          <button id="saveAccesibility" class="btn">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../script/accesibility.js"></script>
+  <script src="../script/dropdown_menu.js"></script>
+  <script src="../script/edit_users.js"></script>
+  <script src="../script/navbar_jquery.js"></script>
+
+</html>
