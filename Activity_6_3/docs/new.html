@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article - DEEP SEA</title>
+    <link rel="stylesheet" href="../output.css" />
+    <link rel="stylesheet" href="../sass/navbar.css" />
+    <link rel="stylesheet" href="../sass/accesibility.css" />
+    <link rel="stylesheet" href="../sass/footer.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="../script/jquery-3.7.1.min.js"></script>
+  </head>
+  <body class="font-inter bg-primary-100">
+    <header>
+      <nav class="navbar">
+        <a href="#" class="login-btn" id="dropdown"
+          ><img src="../res/icons/menu.svg" alt="dropdown menu"
+        /></a>
+        <div class="logo">
+          <a href="../index.html"
+            ><img src="../res/logo.png" alt="LOGO DEEPSEA"
+          /></a>
+        </div>
+
+        <ul class="nav-links">
+          <li><a class="txt" href="./news.html">News</a></li>
+          <li>
+            <a class="txt" href="./portfolio.html">Muntatge de balena</a>
+          </li>
+          <li>
+            <a class="txt" href="./voltant.html">Al voltant de la ballena</a>
+          </li>
+          <li><a class="txt" href="#">Historia</a></li>
+        </ul>
+        <a href="./login.html" class="login-btn" id="login">Log In</a>
+        <a class="login-btn hidden" id="logout">Log Out</a>
+      </nav>
+    </header>
+
+    <div class="dropdown" id="dropdownMenu">
+      <ul class="dropdown-list">
+        <li><a class="txt" href="./news.html">News</a></li>
+        <li>
+          <a class="txt" href="./portfolio.html">Muntatge de balena</a>
+        </li>
+        <li>
+          <a class="txt" href="./voltant.html">Al voltant de la ballena</a>
+        </li>
+        <li><a class="txt" href="#">Historia</a></li>
+      </ul>
+    </div>
+
+    <section class="container mx-auto my-10">
+      <div class="flex flex-row gap-4">
+        <div class="news-container">
+          <div>
+            <h1 class="article-title" id="title">Title of the article</h1>
+            <h2 class="article-author" id="author">Written</h2>
+            <h5 id="date">Written</h5>
+
+            <div class="flex-row px-11 py-5" id="article"></div>
+           
+            <!-- <div class="article-image ">
+              <img src="../res/img/5.jpeg" alt="" class="" />
+            </div>
+            <div class="mb-10">
+              <p class="article-text"></p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Architecto vel vero repudiandae totam eaque, ea animi maiores
+              facere. Illo nobis neque iste, dolore ex minus. Atque iusto
+              provident, accusamus, animi sit pariatur ducimus praesentium fuga,
+              ipsam dolor quis aut quo corporis mollitia optio vitae! Eos
+              asperiores sit porro ab ipsam blanditiis similique cumque eius
+              ipsa laboriosam ad a eligendi iusto suscipit animi quis hitecto vel vero repudiandae totam eaque, ea animi maiores
+              facere. Illo nobis neque iste, dolore ex minus. Atque iusto
+              provident, accusamus, animi sit pariatur ducimus praesentium fuga,
+              ipsam dolor quis aut quo corporis mollitia optio vitae! Eos
+              asperiores sit porro ab ipsam blanditiis similique cumque eius
+              ipsa laboriosam ad a eligendi iusto suscipit animi quis voluptatem
+              libero, explicabo quasi maiores offichitecto vel vero repudiandae totam eaque, ea animi maiores
+              facere. Illo nobis neque iste, dolore ex minus. Atque iusto
+              provident, accusamus, animi sit pariatur ducimus praesentium fuga,
+              ipsam dolor quis aut quo corporis mollitia optio vitae! Eos
+              asperiores sit porro ab ipsam blanditiis similique cumque eius
+              ipsa laboriosam ad a eligendi iusto suscipit animi quis voluptatem
+              libero, explicabo quasi maiores officvoluptatem
+              libero, explicabo quasi maiores officiis nostrum veritatis? Ut
+              veniam consequatur maiores necessitatibus odio dolorum nesciunt
+              libero dignissimos impedit? Cumque, nisi commodi similique illum
+              inventore quo sit ducimus ad officia, facere recusandae cum sed
+              assumenda at qui et eum ut. Nulla nam ab esse id. Similique, iste
+              doloremque omnis dignissimos dolore mollitia voluptas in nisi
+              libero consequatur nemo fugit, quo iusto optio aliquidem illo
+              excepturi sint accusamus. Maxime voluptates similique doloribus
+              tempora, nulla omnis sed vitae aut aperiam aliquam obcaecati
+              accusamus excepturi labore rerum molestiae perspiciatis
+              doloremque, dicta iure non ab. Officia commodi te ...aiores officvoluptatem
+              libero, explicabo quasi maiores officiis nostrum veritatis? Ut
+              veniam consequatur maiores necessitatibus odio dolorum nesciunt
+              libero dignissimos impedit? Cumque, nisi commodi similique illum
+              inventore quo sit ducimus ad officia, facere recusandae cum sed
+              assumenda at qui et eum ut. Nulla nam ab esse id. Similique, iste
+              doloremque omnis dignissimos dolore mollitia voluptas in nisi
+              libero consequatur nemo fugit, quo iusto optio aliquidem illo
+              excepturi sint accusamus. Maxime voluptates similique doloribus
+              tempora, nulla omnis sed vitae aut aperiam aliquam obcaecati
+              accusamus excepturi labore rerum molestiae perspiciatis
+              doloremque, dicta iure non ab. Officia commodi te ...aiores officvoluptatem
+              libero, explicabo quasi maiores officiis nostrum veritatis? Ut
+              veniam consequatur maiores necessitatibus odio dolorum nesciunt
+              libero dignissimos impedit? Cumque, nisi commodi similique illum
+              inventore quo sit ducimus ad officia, facere recusandae cum sed
+              assumenda at qui et eum ut. Nulla nam ab esse id. Similique, iste
+              doloremque omnis dignissimos dolore mollitia voluptas in nisi
+              libero consequatur nemo fugit, quo iusto optio aliquidem illo
+              excepturi sint accusamus. Maxime voluptates similique doloribus
+              tempora, nulla omnis sed vitae aut aperiam aliquam obcaecati
+              accusamus excepturi labore rerum molestiae perspiciatis
+              doloremque, dicta iure non ab. Officia commodi te ...
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Deep Sea.</p>
+    </footer>
+    <button id="accesibilityBtn">
+      <img src="../res/icons/accesibility.svg" alt="accesibility Button" />
+    </button>
+
+    <div class="accesibilityPopup">
+      <div class="form">
+        <div class="form-inputs">
+          <h2>Accesibilitat</h2>
+          <label for="colorMode">Modo de color</label>
+          <select name="colorMode" id="colorMode">
+            <option value="normal" selected="selected">Normal</option>
+            <option value="grayscale">Escala de grisos</option>
+            <option value="highcontrast">Alt contrast</option>
+            <option value="lowcontrast">Baix contrast</option>
+            <option value="highsaturation">Alta saturacio</option>
+            <option value="lowsaturation">Baixa saturacio</option>
+          </select>
+          <label for="size">Tamaño</label>
+          <input
+            type="range"
+            name="size"
+            id="size"
+            min="70"
+            max="130"
+            step="5"
+          />
+          <label for="letterSpacing">Espaciado letra</label>
+          <input
+            type="range"
+            name="letterSpacing"
+            id="letterSpacing"
+            min="0"
+            max="6"
+          />
+          <label for="wordSpacing">Espaciado palabras</label>
+          <input
+            type="range"
+            name="wordSpacing"
+            id="wordSpacing"
+            min="0"
+            max="15"
+          />
+          <label for="lineSpacing">Espaciado linea</label>
+          <input
+            type="range"
+            name="lineSpacing"
+            id="lineSpacing"
+            min="0"
+            max="25"
+          />
+          <button id="saveAccesibility" class="btn">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../script/accesibility.js"></script>
+  <script src="../script/dropdown_menu.js"></script>
+  <script src="../script/edit_users.js"></script>
+  <script src="../script/navbar_jquery.js"></script>
+  <script src="../script/display_article.js"></script>
+</html>
