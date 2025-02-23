@@ -1,7 +1,8 @@
-let news = {};
-$(() => {
-  load_list();
+import { getArticle, getNews } from "./firebase.js";
 
+let news = {};
+$(async () => {
+  await checkArticles();
   const queryString = window.location.search;
 
   const urlParams = new URLSearchParams(queryString);
@@ -10,27 +11,23 @@ $(() => {
 
   console.log("Retrieved ID:", id);
 
-  load_article();
+  await load_article();
 
-  function load_list() {
-    news = JSON.parse(localStorage.getItem("news"));
-    if (!news) {
-      news = [];
-      localStorage.setItem("news", JSON.stringify(news));
-    }
+  async function checkArticles() {
+    let news = await getNews();
     if (news.length == 0) {
       window.location.href = `/index.html`;
     }
   }
 
-  function load_article() {
-    let article = news[id];
+  async function load_article() {
+    let article = await getArticle(id);
     $("#title").text(article.title);
     $("#author").text(article.author);
     $("#date").text(`Published: ${new Date(article.date_publish).toDateString()} | Last edited: ${new Date(article.date_mod).toDateString()}`);
     
-
-    article.content.forEach((sections) => {
+    let content = JSON.parse(article.content);
+    content.forEach((sections) => {
       //ROW
       console.log(sections);
       const $section = $('<div class="flex flex-row gap-11"></div>'); // Crear un contenedor por sección

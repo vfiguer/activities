@@ -1,22 +1,42 @@
+import {
+  deleteArticle,
+  getArticle,
+  getUserData,
+  saveArticle,
+  saveArticleData,
+} from "./firebase.js";
+
 let article_id;
 
-$(function () {
-  if (logged_user.edit_news != true) {
-    window.location.replace("/index.html");
+$(async function () {
+
+  if (localStorage.getItem("logged_user") != null) {
+    let logged_user = await getUserData(localStorage.getItem("logged_user"));
+    if (!logged_user.edit_news) {
+      window.location.href = "/index.html";
+    }
+  } else {
+    window.location.href = "/index.html";
   }
+
+
   // Hacer los elementos de la toolbox arrastrables
   $(".tool").draggable({
     helper: "clone",
     revert: "invalid",
   });
 
-  function delete_article() {
-    let articles = JSON.parse(localStorage.getItem("news"));
+  async function delete_article() {
     if (article_id != -1) {
-      articles.splice(article_id, 1);
-      localStorage.setItem("news", JSON.stringify(articles));
-      localStorage.setItem("article_id", -1);
-      window.location.replace("/docs/news_list.html");
+      let secondConfirm = confirm(
+        "Are you sure you want to delete this user?"
+      );
+      if(secondConfirm){
+        await deleteArticle(localStorage.getItem("article_id"));
+        localStorage.setItem("article_id", -1);
+        window.location.href = "/docs/news_list.html";
+      }
+  
     }
   }
 
@@ -38,19 +58,27 @@ $(function () {
         if (type === "paragraph") {
           newElement = $(
             `<div class="element">
-              <p class="editable" onclick="editParagraph(this)">Escribe aquí tu texto...</p>
+              <p class="editable">Escribe aquí tu texto...</p>
             </div>`
           );
         } else if (type === "image") {
           newElement = $(
             `<div class="element">
-              <input type="file" accept="image/*" onchange="loadImage(event)" />
+              <input type="file" accept="image/*"  />
               <img src="" alt="Imagen" style="display: none;">
             </div>`
           );
         }
 
         $(this).append(newElement);
+
+        $(".column").on("click", ".editable", function () {
+          editPara(this); 
+        });
+
+        $(".column").on("change", "input[type='file']", function (event) {
+          loadImage(event); 
+        });
         makeElementsDraggable();
       },
     });
@@ -111,7 +139,7 @@ $(function () {
     delete_article();
   });
 
-  function save_article(new_status) {
+  async function save_article(new_status) {
     const rows = [];
     $(".row").each(function () {
       const row = [];
@@ -139,63 +167,58 @@ $(function () {
       rows.push(row);
     });
 
-    let articles = JSON.parse(localStorage.getItem("news"));
+    let user = await getUserData(localStorage.getItem("logged_user"));
     if (article_id == -1) {
       let new_article = {
         title: $("#title").val(),
-        id: articles.length + 1,
-        author: logged_user.name,
+        author: user.name,
         date_mod: new Date().getTime(),
         date_create: new Date().getTime(),
         date_publish: "none",
         state: 0,
-        content: rows,
+        content: JSON.stringify(rows),
       };
-      articles.push(new_article);
-      article_id = articles.length - 1;
-      localStorage.setItem("article_id", article_id);
+      let id = await saveArticle(new_article);
+      localStorage.setItem("article_id", id);
     } else {
+      let article = await getArticle(localStorage.getItem("article_id"));
       if (new_status == -1) {
-        new_status = articles[article_id].state;
+        new_status = article.state;
       }
       let date_pub;
       if (new_status == 1) {
         date_pub = new Date().getTime();
       } else {
-        date_pub = articles[article_id].date_publish;
+        date_pub = article.date_publish;
       }
       let edited_article = {
+        ...article,
         title: $("#title").val(),
-        id: article_id,
-        author: articles[article_id].author,
         date_mod: new Date().getTime(),
-        date_create: articles[article_id].date_create,
         date_publish: date_pub,
         state: new_status,
-        content: rows,
+        content: JSON.stringify(rows),
       };
-      articles[article_id] = edited_article;
+      saveArticleData(localStorage.getItem("article_id"), edited_article);
     }
-
-    localStorage.setItem("news", JSON.stringify(articles));
 
     // const config = JSON.stringify(rows);
     // localStorage.setItem("postBuilderConfig", config);
-    alert("Configuración guardada en el navegador.");
+    alert("Article saved.");
     // console.log(rows);
   }
-  function load_article() {
+
+  async function load_article() {
     article_id = localStorage.getItem("article_id");
+
     if (!article_id) {
       article_id = -1;
     }
     console.log(article_id);
     let rows;
-    if (article_id >= 0) {
-      let article_to_edit = JSON.parse(localStorage.getItem("news"))[
-        article_id
-      ];
-      rows = article_to_edit.content;
+    if (article_id != -1) {
+      let article_to_edit = await getArticle(article_id);
+      rows = JSON.parse(article_to_edit.content);
       $("#title").val(article_to_edit.title);
     } else {
       rows = [];
@@ -219,14 +242,18 @@ $(function () {
           if (element.type === "paragraph") {
             newRow += `
               <div class="element">
-                <p class="editable" onclick="editParagraph(this)">${element.content}</p>
+                <p class="editable" >${element.content}</p>
               </div>`;
+              
           } else if (element.type === "image") {
             newRow += `
               <div class="element">
                 <img src="${element.src}" alt="Imagen">
               </div>`;
           }
+        });
+        $(".row-container").on("click", ".editable", function() {
+          editPara(this);  
         });
         newRow += `</div>`;
       });
@@ -255,7 +282,7 @@ function loadImage(event) {
   reader.readAsDataURL(input.files[0]);
 }
 
-function editParagraph(paragraph) {
+function editPara(paragraph) {
   const $p = $(paragraph);
   const currentText = $p.text();
   const input = $(`<input type="text" value="${currentText}" />`);
