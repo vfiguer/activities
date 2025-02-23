@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POST EDITOR - DEEPSEA</title>
+    <link rel="stylesheet" href="../sass/navbar.css" />
+    <link rel="stylesheet" href="../output.css" />
+    <link rel="stylesheet" href="../sass/footer.css" />
+    <link rel="stylesheet" href="../sass/accesibility.css" />
+    <link rel="stylesheet" href="../sass/login.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="../sass/editor.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <a href="#" class="login-btn" id="dropdown"
+          ><img src="../res/icons/menu.svg" alt="dropdown menu"
+        /></a>
+        <div class="logo">
+          <a href="../index.html"
+            ><img src="../res/logo.png" alt="LOGO DEEPSEA"
+          /></a>
+        </div>
+
+        <ul class="nav-links">
+          <li><a class="txt" href="./news.html">News</a></li>
+          <li>
+            <a class="txt" href="./portfolio.html">Muntatge de balena</a>
+          </li>
+          <li>
+            <a class="txt" href="./voltant.html">Al voltant de la ballena</a>
+          </li>
+          <li><a class="txt" href="#">Historia</a></li>
+        </ul>
+        <a href="./login.html" class="login-btn" id="login">Log In</a>
+        <a class="login-btn hidden" id="logout">Log Out</a>
+      </nav>
+    </header>
+    <div class="dropdown" id="dropdownMenu">
+      <ul class="dropdown-list">
+        <li><a class="txt" href="./news.html">News</a></li>
+        <li>
+          <a class="txt" href="./portfolio.html">Muntatge de balena</a>
+        </li>
+        <li>
+          <a class="txt" href="./voltant.html">Al voltant de la ballena</a>
+        </li>
+        <li><a class="txt" href="#">Historia</a></li>
+      </ul>
+    </div>
+    <main class="p-14">
+      <h1 class="text-3xl pb-5 font-bold">Post Editor</h1>
+
+      <div class="toolbox">
+        <h3>Toolbox</h3>
+        <div class="tool" data-type="paragraph">Párrafo</div>
+        <div class="tool" data-type="image">Imagen</div>
+      </div>
+
+      <div id="builder">
+        <div class="row-container"></div>
+      </div>
+
+      <div class="form-inputs">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" />
+        <label for="column-choice">Number of columns per row:</label>
+        <select id="column-choice">
+          <option value="1">1 columns</option>
+          <option value="2">2 columns</option>
+        </select>
+        <button id="add-row" class="btn">Add row</button>
+        <div>
+          <button id="save-config" class="btn">Save</button>
+          <button id="remove" class="btn">Remove</button>
+          <button id="publish" class="btn">Publish</button>
+          <button id="delist" class="btn">Unpublish</button>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- <button id="load-config">Cargar Configuración</button> -->
+
+    <footer>
+      <p>&copy; 2024 Deep Sea.</p>
+    </footer>
+
+    <button id="accesibilityBtn">
+      <img src="../res/icons/accesibility.svg" alt="accesibility Button" />
+    </button>
+
+    <div class="accesibilityPopup">
+      <div class="form">
+        <div class="form-inputs">
+          <h2>Accesibilitat</h2>
+          <label for="colorMode">Modo de color</label>
+          <select name="colorMode" id="colorMode">
+            <option value="normal" selected="selected">Normal</option>
+            <option value="grayscale">Escala de grisos</option>
+            <option value="highcontrast">Alt contrast</option>
+            <option value="lowcontrast">Baix contrast</option>
+            <option value="highsaturation">Alta saturacio</option>
+            <option value="lowsaturation">Baixa saturacio</option>
+          </select>
+          <label for="size">Tamaño</label>
+          <input
+            type="range"
+            name="size"
+            id="size"
+            min="70"
+            max="130"
+            step="5"
+          />
+          <label for="letterSpacing">Espaciado letra</label>
+          <input
+            type="range"
+            name="letterSpacing"
+            id="letterSpacing"
+            min="0"
+            max="6"
+          />
+          <label for="wordSpacing">Espaciado palabras</label>
+          <input
+            type="range"
+            name="wordSpacing"
+            id="wordSpacing"
+            min="0"
+            max="15"
+          />
+          <label for="lineSpacing">Espaciado linea</label>
+          <input
+            type="range"
+            name="lineSpacing"
+            id="lineSpacing"
+            min="0"
+            max="25"
+          />
+          <button id="saveAccesibility" class="btn">Guardar</button>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
+      integrity="sha384-SStJQoPipVtHHnIgUfDI+jTAbSyU+HMbhwt2XRRNpLIRFg9VguopT6Y4+cdOlkqg"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../script/navbar_jquery.js" type="module"></script>
+    <script src="../script/editor.js" type="module"></script>
+    <script src="../script/accesibility.js"></script>
+    <script src="../script/dropdown_menu.js"></script>
+  </body>
+</html>
