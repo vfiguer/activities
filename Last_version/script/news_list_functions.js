@@ -78,16 +78,26 @@ export async function load_article(article ) {
   content.forEach((sections) => {
     //ROW
     console.log(sections);
-    const $section = $('<div class="flex flex-row gap-11"></div>'); // Crear un contenedor por sección
+    const $section = $('<div class="flex flex-row gap-11 "></div>'); // Crear un contenedor por sección
     sections.forEach((elements) => {
-      const $column = $('<div class="flex flex-col w-2/4 "></div>'); // Crear un contenedor por sección
-
+      const $column = $('<div class="flex flex-col mt-5"></div>');
+      if (sections.length != 1) {
+        $column.addClass("w-2/4 ");
+      }
       //columnas
       elements.forEach((element) => {
         if (element.type === "image" && element.src) {
-          $column.append(
-            `<img src="${element.src}" alt="Imagen" class="w-auto rounded-xl shadow-md overflow-hidden max-h-52 object-cover">`
-          );
+        
+
+          if (sections.length != 1) {
+            $column.append(
+              `<img src="${element.src}" alt="Imagen" class="w-auto rounded-xl shadow-md overflow-hidden max-h-52 object-cover">`
+            );
+          } else {
+            $column.append(
+              `<img src="${element.src}" alt="Imagen" class="w-auto rounded-xl shadow-md overflow-hidden  object-cover">`
+            );
+          }
         } else if (element.type === "paragraph" && element.content) {
           $column.append(`<p class="article-text">${element.content}</p>`);
         }

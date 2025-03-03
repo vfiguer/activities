@@ -27,7 +27,7 @@ $(async () => {
     $("#formCreateInputs").remove();
 
     $("#container").append(
-      "<div class='form-inputs items-center py-24 container content-center w-full flex flex-col mx-auto px-4 bg-primary-200 m-20 rounded-xl' id='userList'> </div>"
+      "<div class='form-inputs items-center py-24 container content-center w-full flex flex-col mx-auto px-4 bg-primary-200  rounded-xl' id='userList'> </div>"
     );
 
     $("#userList").append("<h1>Manage Users</h1>");
@@ -124,7 +124,11 @@ $(async () => {
 
   function appendUser(index, user) {
     $("#userList").append(
-      `<div class='listelement hover:bg-primary-100 w-full flex flex-row p-4 justify-between transition rounded-xl'><p>${user.name} - ${user.email}</p></div>`
+      `<div class='listelementMain hover:bg-primary-100  p-4  transition rounded-xl flex flex-col w-full' >
+      <div class="listelement w-full flex flex-row justify-between">
+      <p>${user.name} - ${user.email}</p>
+      </div>
+      </div>`
     );
     $(".listelement")
       .last()
@@ -148,17 +152,17 @@ $(async () => {
         });
     }
 
-    $(".buttons").last().append("<button class='btn edit'>Edit</button>");
+    $(".buttons").last().append("<button class='btn edit ml-2'>Edit</button>");
     $(".edit").last().data("index", index);
     $(".edit")
       .last()
       .click(function () {
         editUser($(this).data("index"));
       });
-    $("#userList")
+
+    $(".listelementMain")
       .last()
       .append("<div data class='permissions  hidden md:block'></div>");
-
     $(".permissions").last().append(`
         <ul>
         <li>Edit Users 

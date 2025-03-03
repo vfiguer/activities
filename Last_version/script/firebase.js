@@ -13,7 +13,7 @@ import {
   orderBy,
   query,
   setDoc,
-  where
+  where,
 } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-firestore.js";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -107,6 +107,34 @@ export async function getUsersByEmail(email) {
   }
 }
 
+export async function checkForAdmin() {
+  const q = query(
+    collection(db, "users"),
+    where("email", "==", "desenvolupador@iesjoanramis.org")
+  );
+
+  const querySnapshot = await getDocs(q);
+
+  if (querySnapshot.empty) {
+    try {
+      const docRef = await addDoc(collection(db, "users"), {
+        name: "admin",
+        email: "desenvolupador@iesjoanramis.org",
+        password: "17ef61145054dd63600f8315ace7f4c7453cf6eb068ed0442577804de558d29a",
+        salt_hash: "undefined",
+        edit_users: true,
+        edit_news: true,
+        edit_bone_files: true,
+        active: true,
+        is_first_login: true,
+        removable: false,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
 //noticias
 
 export async function getNews() {
@@ -138,7 +166,7 @@ export async function getLastArticle() {
     const lastArticle = querySnapshot.docs[0].data();
     return lastArticle;
   } else {
-    return null; 
+    return null;
   }
 }
 export async function saveArticleData(articleId, articleData) {

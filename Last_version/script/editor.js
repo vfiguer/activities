@@ -272,6 +272,14 @@ $(async function () {
 
 function loadImage(event) {
   const input = event.target;
+  const file = input.files[0]; 
+  const maxSize = 2 * 1024 * 1024; 
+
+  if (file.size > maxSize) {
+    alert("The maximum file size is 2MB.");
+    return; 
+  }
+
   const reader = new FileReader();
   reader.onload = function () {
     const img = $(input).siblings("img");
@@ -279,8 +287,10 @@ function loadImage(event) {
     img.show();
     $(input).hide();
   };
-  reader.readAsDataURL(input.files[0]);
+
+  reader.readAsDataURL(file);
 }
+
 
 function editPara(paragraph) {
   const $p = $(paragraph);

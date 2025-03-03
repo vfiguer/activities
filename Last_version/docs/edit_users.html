@@ -34,10 +34,17 @@
             <a class="txt" href="./voltant.html">Al voltant de la ballena</a>
           </li>
           <li><a class="txt" href="#">Historia</a></li>
+          <li>
+            <a class="txt hidden editUsers" href="./edit_users.html">Users</a>
+          </li>
+          <li>
+            <a class="txt hidden editNews" href="./news_list.html"
+              >News Editor</a
+            >
+          </li>
         </ul>
         <a href="./login.html" class="login-btn" id="login">Log In</a>
         <a class="login-btn hidden" id="logout">Log Out</a>
-
       </nav>
     </header>
 
@@ -51,12 +58,18 @@
           <a class="txt" href="./voltant.html">Al voltant de la ballena</a>
         </li>
         <li><a class="txt" href="#">Historia</a></li>
+        <li>
+          <a class="txt hidden editUsers" href="./edit_users.html">Users</a>
+        </li>
+        <li>
+          <a class="txt hidden editNews" href="./news_list.html">News Editor</a>
+        </li>
       </ul>
     </div>
-    <div id="container">
-      
-    </div>
-
+   
+    
+    <div id="container"></div>
+  
     <footer>
       <p>&copy; 2024 Deep Sea.</p>
     </footer>
@@ -119,5 +132,10 @@
   <script src="../script/dropdown_menu.js"></script>
   <script src="../script/user_management.js" type="module"></script>
   <script src="../script/navbar_jquery.js" type="module"></script>
-
+  <script type="module">
+    import { checkForAdmin } from "../script/firebase.js";
+    import { firstLogIn } from "../script/auth.js";
+    await checkForAdmin();
+    await firstLogIn();
+  </script>
 </html>

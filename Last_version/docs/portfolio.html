@@ -9,38 +9,42 @@
     <link rel="stylesheet" href="../sass/navbar.css" />
     <link rel="stylesheet" href="../output.css" />
     <script src="../script/jquery-3.7.1.min.js"></script>
-
   </head>
   <body class="normal">
     <header>
       <nav class="navbar">
         <a href="#" class="login-btn" id="dropdown"
-          ><img
-          src="../res/icons/menu.svg"
-            alt="dropdown menu"
+          ><img src="../res/icons/menu.svg" alt="dropdown menu"
         /></a>
         <div class="logo">
           <a href="../index.html"
             ><img src="../res/logo.png" alt="LOGO DEEPSEA"
           /></a>
         </div>
+
         <ul class="nav-links">
           <li><a class="txt" href="./news.html">News</a></li>
           <li>
             <a class="txt" href="./portfolio.html">Muntatge de balena</a>
           </li>
           <li>
-            <a class="txt" href="./voltant.html"
-              >Al voltant de la ballena</a
-            >
+            <a class="txt" href="./voltant.html">Al voltant de la ballena</a>
           </li>
           <li><a class="txt" href="#">Historia</a></li>
+          <li>
+            <a class="txt hidden editUsers" href="./edit_users.html">Users</a>
+          </li>
+          <li>
+            <a class="txt hidden editNews" href="./news_list.html"
+              >News Editor</a
+            >
+          </li>
         </ul>
         <a href="./login.html" class="login-btn" id="login">Log In</a>
-        <a class="login-btn hidden" id="logout">Log Out</a>      </nav>
+        <a class="login-btn hidden" id="logout">Log Out</a>
+      </nav>
     </header>
 
-    
     <div class="dropdown" id="dropdownMenu">
       <ul class="dropdown-list">
         <li><a class="txt" href="./news.html">News</a></li>
@@ -51,6 +55,12 @@
           <a class="txt" href="./voltant.html">Al voltant de la ballena</a>
         </li>
         <li><a class="txt" href="#">Historia</a></li>
+        <li>
+          <a class="txt hidden editUsers" href="./edit_users.html">Users</a>
+        </li>
+        <li>
+          <a class="txt hidden editNews" href="./news_list.html">News Editor</a>
+        </li>
       </ul>
     </div>
     <main>
@@ -89,10 +99,7 @@
       <p>&copy; 2024 Deep Sea.</p>
     </footer>
     <button id="accesibilityBtn">
-      <img
-      src="../res/icons/accesibility.svg"
-      alt="accesibility Button"
-      />
+      <img src="../res/icons/accesibility.svg" alt="accesibility Button" />
     </button>
 
     <div class="accesibilityPopup">
@@ -148,5 +155,11 @@
   </body>
   <script src="../script/accesibility.js"></script>
   <script src="../script/dropdown_menu.js"></script>
-  <script src="../script/navbar_jquery.js" module="type"></script>
+  <script src="../script/navbar_jquery.js" type="module"></script>
+  <script type="module">
+    import { checkForAdmin } from "../script/firebase.js";
+    import { firstLogIn } from "../script/auth.js";
+    await checkForAdmin();
+    await firstLogIn();
+  </script>
 </html>

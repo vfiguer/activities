@@ -32,11 +32,20 @@
             <a class="txt" href="./voltant.html">Al voltant de la ballena</a>
           </li>
           <li><a class="txt" href="#">Historia</a></li>
+          <li>
+            <a class="txt hidden editUsers" href="./edit_users.html">Users</a>
+          </li>
+          <li>
+            <a class="txt hidden editNews" href="./news_list.html"
+              >News Editor</a
+            >
+          </li>
         </ul>
         <a href="./login.html" class="login-btn" id="login">Log In</a>
         <a class="login-btn hidden" id="logout">Log Out</a>
       </nav>
     </header>
+
     <div class="dropdown" id="dropdownMenu">
       <ul class="dropdown-list">
         <li><a class="txt" href="./news.html">News</a></li>
@@ -47,6 +56,12 @@
           <a class="txt" href="./voltant.html">Al voltant de la ballena</a>
         </li>
         <li><a class="txt" href="#">Historia</a></li>
+        <li>
+          <a class="txt hidden editUsers" href="./edit_users.html">Users</a>
+        </li>
+        <li>
+          <a class="txt hidden editNews" href="./news_list.html">News Editor</a>
+        </li>
       </ul>
     </div>
     <main>
@@ -124,4 +139,10 @@
   <script src="../script/dropdown_menu.js"></script>
   <script src="../script/navbar_jquery.js" type="module"></script>
   <script src="../script/news_list.js" type="module"></script>
-</html>
+  <script type="module">
+    import { checkForAdmin } from "../script/firebase.js";
+    import { firstLogIn } from "../script/auth.js";
+    await checkForAdmin();
+    await firstLogIn();
+  </script>
+  </html>

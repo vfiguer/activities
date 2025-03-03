@@ -37,6 +37,14 @@
             <a class="txt" href="./voltant.html">Al voltant de la ballena</a>
           </li>
           <li><a class="txt" href="#">Historia</a></li>
+          <li>
+            <a class="txt hidden editUsers" href="./edit_users.html">Users</a>
+          </li>
+          <li>
+            <a class="txt hidden editNews" href="./news_list.html"
+              >News Editor</a
+            >
+          </li>
         </ul>
         <a href="./login.html" class="login-btn" id="login">Log In</a>
         <a class="login-btn hidden" id="logout">Log Out</a>
@@ -53,6 +61,12 @@
           <a class="txt" href="./voltant.html">Al voltant de la ballena</a>
         </li>
         <li><a class="txt" href="#">Historia</a></li>
+        <li>
+          <a class="txt hidden editUsers" href="./edit_users.html">Users</a>
+        </li>
+        <li>
+          <a class="txt hidden editNews" href="./news_list.html">News Editor</a>
+        </li>
       </ul>
     </div>
 
@@ -64,8 +78,9 @@
             <h2 class="article-author" id="author">Written</h2>
             <h5 id="date">Written</h5>
 
-            <div class="flex-row px-11 py-5" id="article"></div>
-           
+            <div class="flex-row px-11 py-5 " id="article"></div>
+
+            
             <!-- <div class="article-image ">
               <img src="../res/img/5.jpeg" alt="" class="" />
             </div>
@@ -189,6 +204,12 @@
   </body>
   <script src="../script/accesibility.js"></script>
   <script src="../script/dropdown_menu.js"></script>
-  <script src="../script/navbar_jquery.js"></script>
+  <script src="../script/navbar_jquery.js" type="module"></script>
   <script src="../script/display_article.js" type="module"></script>
-</html>
+  <script type="module">
+    import { checkForAdmin } from "../script/firebase.js";
+    import { firstLogIn } from "../script/auth.js";
+    await checkForAdmin();
+    await firstLogIn();
+  </script>
+  </html>
